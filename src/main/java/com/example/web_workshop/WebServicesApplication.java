@@ -1,4 +1,4 @@
-package com.example.web_services;
+package com.example.web_workshop;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

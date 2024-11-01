@@ -1,4 +1,4 @@
-package com.example.web_services.entities;
+package com.example.web_workshop.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -81,13 +81,11 @@ public class User implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(Id, user.Id);
+        return Objects.equals(id, user.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(Id);
+        return Objects.hashCode(id);
     }
-
-
 }
