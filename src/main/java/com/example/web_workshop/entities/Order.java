@@ -1,7 +1,6 @@
 package com.example.web_workshop.entities;
 
 
-
 import com.example.web_workshop.entities.enums.OrderStatus;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
@@ -31,6 +30,9 @@ public class Order implements Serializable {
     @OneToMany(mappedBy = "id.order")
     private Set<OrderItem> items = new HashSet<>();
 
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    private Payment payment;
+
     public Order() {
     }
 
@@ -56,12 +58,11 @@ public class Order implements Serializable {
     public void setMoment(Instant moment) {
         this.moment = moment;
     }
+
     public OrderStatus getOrderStatus() {
         return OrderStatus.valueOf(orderStatus);
     }
-    public Set<OrderItem> getItems() {
-        return items;
-    }
+
 
     public void setOrderStatus(OrderStatus orderStatus) {
         if (orderStatus != null) {
@@ -76,6 +77,19 @@ public class Order implements Serializable {
     public void setClient(User client) {
         this.client = client;
     }
+
+    public Payment getPayment() {
+        return this.payment;
+    }
+
+    public void SetPayment(Payment payment) {
+        this.payment = payment;
+    }
+
+    public Set<OrderItem> getItems() {
+        return items;
+    }
+
     @Override
     public int hashCode() {
         final int prime = 31;
