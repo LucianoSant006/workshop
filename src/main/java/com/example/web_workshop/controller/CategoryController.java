@@ -25,7 +25,7 @@ public class CategoryController {
         return ResponseEntity.ok().body(list);
     }
 
-    @GetMapping(value = "{id}")
+    @GetMapping(value = "/{id}")
     ResponseEntity<Category> findById(@PathVariable Long id) {
         Category obj = categoryService.findById(id);
         return ResponseEntity.ok().body(obj);

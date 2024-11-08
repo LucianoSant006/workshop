@@ -18,26 +18,40 @@ import java.util.Optional;
 public class UserController {
 
     @Autowired
-    private UserService  userService;
+    private UserService userService;
 
     @GetMapping
-    public ResponseEntity<List<User>> findAll(){
-      List<User> list = userService.findAll();
-      return ResponseEntity.ok().body(list);
+    public ResponseEntity<List<User>> findAll() {
+        List<User> list = userService.findAll();
+        return ResponseEntity.ok().body(list);
     }
-    @GetMapping(value = "{id}")
-    public ResponseEntity<User> findById(@PathVariable Long id){
+
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<User> findById(@PathVariable Long id) {
         User obj = userService.findById(id);
         return ResponseEntity.ok().body(obj);
     }
 
     @PostMapping
-     ResponseEntity<User> insert(@RequestBody User obj){
-         obj = userService.insert(obj);
-         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
+    ResponseEntity<User> insert(@RequestBody User obj) {
+        obj = userService.insert(obj);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
         return ResponseEntity.created(uri).body(obj);
-        }
     }
+
+    @DeleteMapping(value = "/{id}")
+    ResponseEntity<Void> delete(@PathVariable Long id) {
+        userService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping(value = "/{id}")
+    ResponseEntity<User> update(@PathVariable Long id, @RequestBody User obj) {
+        obj = userService.update(id, obj);
+        return ResponseEntity.ok().body(obj);
+    }
+}
+
 
 
 
