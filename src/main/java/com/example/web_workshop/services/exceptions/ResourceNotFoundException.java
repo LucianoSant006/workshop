@@ -1,4 +1,4 @@
-package com.example.web_workshop.services.excptions;
+package com.example.web_workshop.services.exceptions;
 
 public class ResourceNotFoundException extends RuntimeException {
 
