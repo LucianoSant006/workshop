@@ -11,7 +11,12 @@
     <img src="https://www.h2database.com/html/images/h2-logo-2.png" alt="Logo do H2 Database" width="100" height="100">
 
 </div>
-##Building.....
+
+# UML     
+## Domain Model
+ <img src="https://github.com/user-attachments/assets/cd37579d-b72f-438a-8bb6-bdddd6e49f21" alt="Domain Model" width="800" height="600">
+ 
+# Building.....
 
 
 
