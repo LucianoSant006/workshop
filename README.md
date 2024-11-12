@@ -15,11 +15,108 @@
 # UML     
 ## Domain Model
  <img src="https://github.com/user-attachments/assets/cd37579d-b72f-438a-8bb6-bdddd6e49f21" alt="Domain Model" width="800" height="600">
+
+ ## Api Users
  
-# Building.....
+ ## JSON da API de Usuários 
+# GET http://localhost:8080/users
 
+```json
+[
+  {
+    "id": 1,
+    "name": "Maria Brown",
+    "email": "maria@gmail.com",
+    "phone": "988888888",
+    "password": "123456"
+  },
+  {
+    "id": 2,
+    "name": "Alex Green",
+    "email": "alex@gmail.com",
+    "phone": "977777777",
+    "password": "123456"
+  }
+]
+```
+ ## JSON da API de Orders
+# GET http://localhost:8080/ordes
 
+ ```json
+ [
+  {
+    "id": 1,
+    "moment": "2019-06-20T19:53:07Z",
+    "orderStatus": "PAID",
+    "client": {
+      "id": 1,
+      "name": "Maria Brown",
+      "email": "maria@gmail.com",
+      "phone": "988888888",
+      "password": "123456"
+    },
+    "items": [
+      {
+        "quantity": 2,
+        "price": 90.5,
+        "subTotal": 181.0
+      },
+      {
+        "quantity": 1,
+        "price": 1250.0,
+        "subTotal": 1250.0
+      }
+    ],
+    "payment": {
+      "id": 1,
+      "moment": "2019-06-20T20:53:07Z"
+    },
+    "total": 1431.0
+  },
+  {
+    "id": 2,
+    "moment": "2019-07-21T03:42:10Z",
+    "orderStatus": "WAITING_PAYMENT",
+    "client": {
+      "id": 2,
+      "name": "Alex Green",
+      "email": "alex@gmail.com",
+      "phone": "977777777",
+      "password": "123456"
+    },
+    "items": [
+      {
+        "quantity": 2,
+        "price": 1250.0,
+        "subTotal": 2500.0
+      }
+    ]
+```
+# Api Users Método POST http://localhost:8080/users
+Content-Type: application/json
 
+##Envio
+ ```json
+{
+  "id": null,
+  "name": "Luciano Santiago",
+  "email": "santiagoluciano@gmail.com",
+  "phone": "23232-242",
+  "password": "Eazy2324"
+}
 
-
-
+```
+# Return
+### Location: http://localhost:8080/users/3
+### Content-Type: application/json
+### Transfer-Encoding: chunked
+### Date: Tue, 12 Nov 2024 17:34:35 GMT
+ ```json
+{
+  "id": 3,
+  "name": "Luciano Santiago",
+  "email": "santiagoluciano@gmail.com",
+  "phone": "23232-242",
+  "password": "Eazy2324"
+}
+```
