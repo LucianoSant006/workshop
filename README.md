@@ -1,7 +1,7 @@
 # Projeto workshop 
 ## Este projeto consiste em uma API RESTful desenvolvida em Java com Spring Boot que permite a realização de operações CRUD em usuário e associação usando arquitetura MVC
 ## Vários tipos de associações entre entidades de varios relacionamentos usando ORM exemplo: @OneToOne,@OneToMany,@ManyToMany
-# Tecnologias usadas: Postman, Banco de dados H2, Spring Boot
+# Tecnologias usadas: Postman, Banco de dados H2, Spring Boot,Maven
 ## Linguagem usada: Java
 
 <div style="display: flex; gap: 1000px;">
@@ -16,10 +16,8 @@
 ## Domain Model
  <img src="https://github.com/user-attachments/assets/cd37579d-b72f-438a-8bb6-bdddd6e49f21" alt="Domain Model" width="800" height="600">
 
- ## Api Users
- 
- ## JSON da API de Usuários 
-# GET http://localhost:8080/users
+ ## Api Users 
+#  Get all users GET /suppliers Route : localhost:8080/users Return:
 
 ```json
 [
@@ -38,6 +36,39 @@
     "password": "123456"
   }
 ]
+```
+
+# Api Users Add new user POST/users route: localhost:8080/users
+Content-Type: application/json
+
+## seend
+
+ ```json
+{
+  "id": null,
+  "name": "Luciano Santiago",
+  "email": "santiagoluciano@gmail.com",
+  "phone": "23232-242",
+  "password": "Eazy2324"
+}
+
+```
+# Return
+### Location: http://localhost:8080/users/3
+### Content-Type: application/json
+### Transfer-Encoding: chunked
+### Date: Tue, 12 Nov 2024 17:34:35 GMT
+
+## Get specific user GET / users Route : localhost:8080/users/{id_users}
+## Update specific user Update  / users  Route : localhost:8080/users/{id_users}
+ ```json
+{
+  "id": 3,
+  "name": "Luciano Santiago",
+  "email": "santiagoluciano@gmail.com",
+  "phone": "23232-242",
+  "password": "Eazy2324"
+}
 ```
  ## JSON da API de Orders
 # GET http://localhost:8080/ordes
@@ -92,31 +123,4 @@
       }
     ]
 ```
-# Api Users Método POST http://localhost:8080/users
-Content-Type: application/json
 
-##Envio
- ```json
-{
-  "id": null,
-  "name": "Luciano Santiago",
-  "email": "santiagoluciano@gmail.com",
-  "phone": "23232-242",
-  "password": "Eazy2324"
-}
-
-```
-# Return
-### Location: http://localhost:8080/users/3
-### Content-Type: application/json
-### Transfer-Encoding: chunked
-### Date: Tue, 12 Nov 2024 17:34:35 GMT
- ```json
-{
-  "id": 3,
-  "name": "Luciano Santiago",
-  "email": "santiagoluciano@gmail.com",
-  "phone": "23232-242",
-  "password": "Eazy2324"
-}
-```
