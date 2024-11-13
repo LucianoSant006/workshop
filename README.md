@@ -1,5 +1,5 @@
 # Projeto workshop 
-## Este projeto consiste em uma API RESTful desenvolvida em Java com Spring Boot que permite a realização de operações CRUD em usuário e associação usando arquitetura MVC
+## Este projeto consiste em uma API REST desenvolvida em Java com Spring Boot que permite a realização de operações CRUD em usuário e associação usando arquitetura MVC
 ## Vários tipos de associações entre entidades de varios relacionamentos usando ORM exemplo: @OneToOne,@OneToMany,@ManyToMany
 # Tecnologias usadas: Postman, Banco de dados H2, Spring Boot,Maven
 ## Linguagem usada: Java
