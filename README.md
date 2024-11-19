@@ -18,7 +18,7 @@
  <img src="https://github.com/user-attachments/assets/cd37579d-b72f-438a-8bb6-bdddd6e49f21" alt="Domain Model" width="800" height="600">
 
  ## Api Users 
-#  Get all users GET /suppliers Route : localhost:8080/users Return:
+#  Get all users  Route : localhost:8080/users Return:
 
 ```json
 [
@@ -42,7 +42,7 @@
 # Api Users Add new user POST/users route: localhost:8080/users
 Content-Type: application/json
 
-## seend
+## send
 
  ```json
 {
@@ -125,8 +125,8 @@ Content-Type: application/json
     ]
 ```
 ## Implementei uma consulta com nativeQuery usando Query Parameters 
-## Busca os usúarios por id ou pela inicial de um nome apenas uma letra listando todos podendo customizar a busca 
-## Get  /users/search? GET /users/search? Route : localhost:8080/users/search?{id_users} or localhost:8080/users/search?{name_users} and localhost:8080/users/search?/{id_users}and{name_users}
+## Busca os usuários por id ou pela inicial de um nome apenas uma letra listando todos podendo customizar a busca 
+## Get  /users/search? Route : localhost:8080/users/search?{id_users} or localhost:8080/users/search?{name_users} 
 
 ## Exemplo de Query Parameters http://localhost:8080/users/search?name=Ma Return:
 
