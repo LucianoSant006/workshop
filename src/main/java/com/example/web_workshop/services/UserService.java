@@ -25,6 +25,10 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    public List<User> findUsers(Long id, String name) {
+        return userRepository.findByIdOrNameLike(id, name);
+    }
+
     public User findById(Long id) {
         Optional<User> obj = userRepository.findById(id);
         return obj.orElseThrow(() -> new ResourceNotFoundException(id));

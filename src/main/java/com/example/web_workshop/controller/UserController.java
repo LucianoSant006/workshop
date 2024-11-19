@@ -32,6 +32,14 @@ public class UserController {
         return ResponseEntity.ok().body(obj);
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<List<User>> searchUsers(
+            @RequestParam(required = false) Long id,
+            @RequestParam(required = false) String name) {
+        List<User> users = userService.findUsers(id, name);
+        return ResponseEntity.ok(users);
+    }
+
     @PostMapping
     ResponseEntity<User> insert(@RequestBody User obj) {
         obj = userService.insert(obj);
