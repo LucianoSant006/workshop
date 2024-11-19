@@ -1,6 +1,7 @@
 # Projeto workshop 
 ## Este projeto consiste em uma API REST desenvolvida em Java com Spring Boot que permite a realização de operações CRUD em usuário e associação usando arquitetura MVC
 ## Vários tipos de associações entre entidades de varios relacionamentos usando ORM exemplo: @OneToOne,@OneToMany,@ManyToMany
+## Implementando uma Consulta com @Query fazendo uma busca de usuários usando o Like e Query Parameters exemplo
 # Tecnologias usadas: Postman, Banco de dados H2, Spring Boot,Maven
 ## Linguagem usada: Java
 
@@ -122,5 +123,48 @@ Content-Type: application/json
         "subTotal": 2500.0
       }
     ]
+```
+## Implementei uma consulta com nativeQuery usando Query Parameters 
+## Busca os usúarios por id ou pela inicial de um nome apenas uma letra listando todos podendo customizar a busca 
+## Get  /users/search? GET /users/search? Route : localhost:8080/users/search?{id_users} or localhost:8080/users/search?{name_users} and localhost:8080/users/search?/{id_users}and{name_users}
+
+## Exemplo de Query Parameters http://localhost:8080/users/search?name=Ma Return:
+
+```json
+ {
+        "id": 1,
+        "name": "Maria Brown",
+        "email": "maria@gmail.com",
+        "phone": "988888888",
+        "password": "123456"
+    },
+    {
+        "id": 3,
+        "name": "Marta Oliveira",
+        "email": "marta.oliveira@example.com",
+        "phone": "31987654321",
+        "password": "senha789"
+    },
+    {
+        "id": 5,
+        "name": "Matheus Lima",
+        "email": "matheus.lima@example.com",
+        "phone": "51987654321",
+        "password": "senha202"
+    },
+    {
+        "id": 8,
+        "name": "Maurício Mendes",
+        "email": "mauricio.mendes@example.com",
+        "phone": "81987654321",
+        "password": "senha505"
+    },
+    {
+        "id": 10,
+        "name": "Mariana Rocha",
+        "email": "mariana.rocha@example.com",
+        "phone": "11999887766",
+        "password": "senha707"
+    }
 ```
 
