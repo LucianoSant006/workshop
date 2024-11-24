@@ -1,16 +1,15 @@
 package com.example.web_workshop.controller;
 
-import com.example.web_workshop.entities.Product;
-import com.example.web_workshop.entities.User;
+import com.example.web_workshop.dto.ProductDTO;
 import com.example.web_workshop.services.ProductService;
-import com.example.web_workshop.services.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -21,16 +20,31 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping
-    public ResponseEntity<List<Product>> findAll(){
-      List<Product> list = productService.findAll();
-      return ResponseEntity.ok().body(list);
+    public ResponseEntity<List<ProductDTO>> findAll(){
+        List<ProductDTO> dto = productService.findAll();
+        return ResponseEntity.ok(dto);
     }
+
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Product> findById(@PathVariable Long id){
-        Product obj = productService.findById(id);
-        return ResponseEntity.ok().body(obj);
+    public ResponseEntity<ProductDTO> findById(@PathVariable Long id) {
+        ProductDTO dto = productService.findById(id);
+        return ResponseEntity.ok().body(dto);
+    }
+    @PostMapping
+    public ResponseEntity<ProductDTO> create(@Valid @RequestBody ProductDTO productDTO) {
+        ProductDTO createdProduct = productService.create(productDTO);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(createdProduct.getId()).toUri();
+        return ResponseEntity.created(uri).body(createdProduct);
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteByid(@PathVariable Long id){
+        productService.delete(id);
+        return ResponseEntity.noContent().build();
     }
 
-
-
+    @PutMapping("/{id}")
+    public ResponseEntity<ProductDTO> updateProduct(@PathVariable Long id, @RequestBody ProductDTO productDTO) {
+        ProductDTO updatedProduct = productService.updateProduct(id, productDTO);
+        return ResponseEntity.ok(updatedProduct);
+    }
 }
