@@ -17,8 +17,8 @@
 ## Domain Model
  <img src="https://github.com/user-attachments/assets/cd37579d-b72f-438a-8bb6-bdddd6e49f21" alt="Domain Model" width="800" height="600">
 
- ## Api Users 
-#  Get all users  Route : localhost:8080/users Return:
+ # Api Users 
+##  Get all users  Route : localhost:8080/users Return:
 
 ```json
 [
@@ -39,10 +39,10 @@
 ]
 ```
 
-# Api Users Add new user POST/users route: localhost:8080/users
+## Add new user POST/users route: localhost:8080/users
 Content-Type: application/json
 
-## send
+### send
 
  ```json
 {
@@ -54,11 +54,11 @@ Content-Type: application/json
 }
 
 ```
-# Return
-### Location: http://localhost:8080/users/3
-### Content-Type: application/json
-### Transfer-Encoding: chunked
-### Date: Tue, 12 Nov 2024 17:34:35 GMT
+### Return
+#### Location: http://localhost:8080/users/3
+#### Content-Type: application/json
+#### Transfer-Encoding: chunked
+#### Date: Tue, 12 Nov 2024 17:34:35 GMT
 
 ## Get specific user GET / users Route : localhost:8080/users/{id_users}
 ## Update specific user Update  / users  Route : localhost:8080/users/{id_users}
@@ -71,8 +71,8 @@ Content-Type: application/json
   "password": "Eazy2324"
 }
 ```
- ## JSON da API de Orders
-# GET http://localhost:8080/ordes
+ # JSON da API de Orders
+## GET http://localhost:8080/ordes
 
  ```json
  [
@@ -124,11 +124,11 @@ Content-Type: application/json
       }
     ]
 ```
-## Implementei uma consulta com nativeQuery usando Query Parameters 
+# Implementei uma consulta com nativeQuery usando Query Parameters 
 ## Busca os usuários por id ou pela inicial de um nome apenas uma letra listando todos podendo customizar a busca 
-## Get  /users/search? Route : localhost:8080/users/search?{id_users} or localhost:8080/users/search?{name_users} 
+### Get  /users/search? Route : localhost:8080/users/search?{id_users} or localhost:8080/users/search?{name_users} 
 
-## Exemplo de Query Parameters http://localhost:8080/users/search?name=Ma Return:
+### Exemplo de Query Parameters http://localhost:8080/users/search?name=Ma Return:
 
 ```json
  {
